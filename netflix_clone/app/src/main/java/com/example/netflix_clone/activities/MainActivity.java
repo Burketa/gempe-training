@@ -30,6 +30,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Intent intent = new Intent(getBaseContext(), APIActivity.class);
+        startActivity(intent);
+
         feedbacks = new ArrayList<>();
 
         //Referencias
@@ -85,9 +88,8 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void loadFeedbacksCardActivity(View view) {
-        Intent intent = new Intent(getBaseContext(), FeedbacksCardViewActivity.class);
-        intent.putExtra("list", (Serializable) feedbacks);
+    public void loadAPIActivity(View view) {
+        Intent intent = new Intent(getBaseContext(), APIActivity.class);
         startActivity(intent);
     }
 }
