@@ -12,6 +12,9 @@ import android.widget.Toast;
 import com.example.netflix_clone.R;
 import com.example.netflix_clone.adapters.AdapterFeedbacks;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -98,7 +101,25 @@ public class APIActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(String result) {
             super.onPostExecute(result);
-            Toast.makeText(APIActivity.this, result, Toast.LENGTH_SHORT).show();
+            //Toast.makeText(APIActivity.this, result, Toast.LENGTH_SHORT).show();
+
+            String currency;
+            String buy_price;
+            String sell_price;
+
+            //TODO: Iterar em cada moeda para colocar os valores em uma lista para colocar no adapter
+            try {
+                JSONObject jsonObjectCurrencys = new JSONObject(result);
+                currency = jsonObjectCurrencys.getString("ITERACAO EM CADA MOEDA");
+
+                JSONObject jsonObjectSelectedCurrency = new JSONObject(result);
+                buy_price = jsonObjectSelectedCurrency.getString("buy");
+                buy_price = jsonObjectSelectedCurrency.getString("sell");
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
             /*
             //Adapter
             AdapterFeedbacks adapter = new AdapterFeedbacks(list);
