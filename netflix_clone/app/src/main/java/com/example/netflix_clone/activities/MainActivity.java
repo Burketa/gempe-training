@@ -1,4 +1,4 @@
-package com.example.netflix_clone;
+package com.example.netflix_clone.activities;
 
 import android.content.Intent;
 import android.support.design.widget.TextInputEditText;
@@ -8,6 +8,9 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.RadioGroup;
 import android.widget.Toast;
+
+import com.example.netflix_clone.R;
+import com.example.netflix_clone.model.Feedback;
 
 import java.io.Serializable;
 import java.util.ArrayList;

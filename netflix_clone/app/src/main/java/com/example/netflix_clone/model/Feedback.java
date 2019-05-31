@@ -1,4 +1,4 @@
-package com.example.netflix_clone;
+package com.example.netflix_clone.model;
 
 import java.io.Serializable;
 
