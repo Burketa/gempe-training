@@ -34,7 +34,7 @@ public class FeedbacksRecyclerViewActivity extends AppCompatActivity {
 
         //Referencias
         RecyclerView recyclerView;
-        recyclerView = findViewById(R.id.recycler_view);
+        recyclerView = findViewById(R.id.api_view);
 
         //Adapter
         AdapterFeedbacks adapter = new AdapterFeedbacks(list);
