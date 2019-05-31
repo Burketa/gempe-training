@@ -9,7 +9,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="5"
         android:text="@string/feedback"
-        android:textAlignment="center"
+        android:textAlignment="textStart"
         android:textSize="18sp"
         android:textStyle="bold" />
 

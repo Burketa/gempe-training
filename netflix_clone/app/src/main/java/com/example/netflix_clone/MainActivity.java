@@ -21,8 +21,6 @@ public class MainActivity extends AppCompatActivity {
 
     private List<Feedback> feedbacks;
 
-    private Feedback current_feedback;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +28,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         feedbacks = new ArrayList<>();
-        current_feedback = new Feedback();
 
         //Referencias
         tv_feedback = findViewById(R.id.tv_feedback);
@@ -45,20 +42,20 @@ public class MainActivity extends AppCompatActivity {
         - Adiciona o feedback na lista
     */
     public void buttonSend(View view) {
-        current_feedback.reset();
-
         String user_feedback = tv_feedback.getText().toString();
 
-        current_feedback.setFeedback(user_feedback);
-        checkRadioGroupSelected();
+        Feedback current_feedback = new Feedback();
 
-        switch(current_feedback.getString_case())
+        switch(radio_group.getCheckedRadioButtonId())
         {
-            case "Upper":
+            case R.id.rb_upper:
                 current_feedback.setFeedback(user_feedback.toUpperCase());
+                current_feedback.setString_case("Upper");
                 break;
-            case "Lower":
+            default:
+            case R.id.rb_lower:
                 current_feedback.setFeedback(user_feedback.toLowerCase());
+                current_feedback.setString_case("Lower");
                 break;
         }
 
@@ -67,23 +64,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
         feedbacks.add(current_feedback);
-    }
-
-    //Checa qual botao do radio group esta ativo
-    public void checkRadioGroupSelected() {
-        radio_group.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                switch (checkedId) {
-                    case R.id.rb_upper:
-                        current_feedback.setString_case("Upper");
-                        break;
-                    case R.id.rb_lower:
-                        current_feedback.setString_case("Lower");
-                        break;
-                }
-            }
-        });
     }
 
     //Checa se o checkbox para exibir toast esta ativo ou nao

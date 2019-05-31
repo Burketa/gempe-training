@@ -43,21 +43,4 @@ public class Feedback {
     public void setToast_checked(boolean toast_checked) {
         this.toast_checked = toast_checked;
     }
-
-    public String toLower()
-    {
-        return feedback.toLowerCase();
-    }
-
-    public String toUpper()
-    {
-         return feedback.toUpperCase();
-    }
-
-    public void reset()
-    {
-        feedback = "";
-        string_case = "";
-        toast_checked = false;
-    }
 }
