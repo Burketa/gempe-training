@@ -141,6 +141,7 @@ public class APIActivity extends AppCompatActivity {
             recyclerView = findViewById(R.id.api_view);
             recyclerView.setLayoutManager(layoutManager);
             recyclerView.setHasFixedSize(true);
+            //getParentgetApplicationContext()
             //recyclerView.addItemDecoration(new DividerItemDecoration(getParent().getApplicationContext(), LinearLayout.VERTICAL));
             recyclerView.setAdapter(adapter);
         }
