@@ -1,6 +1,8 @@
 package com.example.netflix_clone;
 
-public class Feedback {
+import java.io.Serializable;
+
+public class Feedback implements Serializable {
 
 
     private String feedback;

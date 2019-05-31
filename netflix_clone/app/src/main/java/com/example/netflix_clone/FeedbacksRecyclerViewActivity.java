@@ -10,20 +10,26 @@ import android.widget.LinearLayout;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FeedbacksActivity extends AppCompatActivity {
-
-    private RecyclerView recyclerView;
-
-    private List<Feedback> list;
-
+public class FeedbacksRecyclerViewActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_feedbacks);
+        setContentView(R.layout.activity_feedbacks_recycle);
 
-        this.createFeedbacklist();
+        //Inicializa a lista
+        List<Feedback> list = new ArrayList<>();
+
+        //Pega o bundle da Main Activity
+        Bundle bundle = getIntent().getExtras();
+        list = (List<Feedback>) bundle.getSerializable("list");
+
+        //Se n;ao tiver nenhum item, gera uma lista generica
+        if(list.size() == 0) {
+            list = createFeedbacklist(list);
+        }
 
         //Referencias
+        RecyclerView recyclerView;
         recyclerView = findViewById(R.id.recycler_view);
 
         //Adapter
@@ -37,12 +43,14 @@ public class FeedbacksActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
     }
 
-    public void createFeedbacklist() {
-        list = new ArrayList<>();
+    public List<Feedback> createFeedbacklist(List<Feedback> list) {
+
         list.add(new Feedback("GOSTEI", "Upper", false));
         list.add(new Feedback("nao gostei", "Lower", true));
         list.add(new Feedback("testes1", "Lower", false));
         list.add(new Feedback("Feedback", "Lower", true));
         list.add(new Feedback("ENGRAÇADO !", "Upper", false));
+
+        return list;
     }
 }

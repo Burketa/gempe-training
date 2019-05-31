@@ -6,10 +6,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -50,12 +50,12 @@ public class MainActivity extends AppCompatActivity {
         {
             case R.id.rb_upper:
                 current_feedback.setFeedback(user_feedback.toUpperCase());
-                current_feedback.setString_case("Upper");
+                current_feedback.setString_case("UPPER");
                 break;
             default:
             case R.id.rb_lower:
                 current_feedback.setFeedback(user_feedback.toLowerCase());
-                current_feedback.setString_case("Lower");
+                current_feedback.setString_case("lower");
                 break;
         }
 
@@ -75,10 +75,16 @@ public class MainActivity extends AppCompatActivity {
         return isChecked;
     }
 
-    //Passa os dados para a nova activity
-    public void loadFeedbacksActivity(View view) {
-        Intent i = new Intent(getBaseContext(), FeedbacksActivity.class);
-        //i.putExtra("PersonID", personID);
-        startActivity(i);
+    //Passa os dados para as novas activities
+    public void loadFeedbacksRecycleActivity(View view) {
+        Intent intent = new Intent(getBaseContext(), FeedbacksRecyclerViewActivity.class);
+        intent.putExtra("list", (Serializable) feedbacks);
+        startActivity(intent);
+    }
+
+    public void loadFeedbacksCardActivity(View view) {
+        Intent intent = new Intent(getBaseContext(), FeedbacksCardViewActivity.class);
+        intent.putExtra("list", (Serializable) feedbacks);
+        startActivity(intent);
     }
 }
