@@ -1,23 +1,17 @@
 package com.example.netflix_clone.activities;
 
 import android.os.AsyncTask;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.DividerItemDecoration;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.example.netflix_clone.R;
 import com.example.netflix_clone.adapters.AdapterFeedbacks;
 import com.example.netflix_clone.api.CEPService;
-import com.example.netflix_clone.api.CurrencyService;
 import com.example.netflix_clone.model.CEP;
-import com.example.netflix_clone.model.Currency;
 import com.example.netflix_clone.model.Feedback;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -81,7 +75,7 @@ public class RetrofitActivity extends AppCompatActivity {
                 System.out.println("ok");
                 Toast.makeText(RetrofitActivity.this, responseCEP.getLocalidade(), Toast.LENGTH_SHORT).show();
                 System.out.println(response.body().getLocalidade());
-                System.out.println(response.body().getLocalidade());
+                System.out.println(response.body().getLogradouro());
             }
 
             @Override
