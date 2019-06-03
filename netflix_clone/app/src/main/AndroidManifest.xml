@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.RetrofitActivity"></activity>
+        <activity android:name=".activities.WhatsappActivity"></activity>
+        <activity android:name=".activities.RetrofitActivity" />
         <activity android:name=".activities.APIActivity" />
         <activity
             android:name=".activities.FeedbacksRecyclerViewActivity"
