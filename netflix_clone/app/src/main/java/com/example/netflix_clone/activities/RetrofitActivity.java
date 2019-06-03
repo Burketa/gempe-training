@@ -5,12 +5,15 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.example.netflix_clone.R;
 import com.example.netflix_clone.adapters.AdapterFeedbacks;
 import com.example.netflix_clone.api.CEPService;
+import com.example.netflix_clone.api.CurrencyService;
 import com.example.netflix_clone.model.CEP;
+import com.example.netflix_clone.model.Currency;
 import com.example.netflix_clone.model.Feedback;
 
 import org.json.JSONException;
@@ -59,27 +62,29 @@ public class RetrofitActivity extends AppCompatActivity {
 
     private void taskWithRetrofit() {
         retrofit = new Retrofit.Builder()
-                .baseUrl("https://viacep.com.br/ws/86300000/json/")
+                .baseUrl("https://blockchain.info/ticker/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
-        CEPService cepService = retrofit.create(CEPService.class);
-        Call<CEP> call = cepService.getCEP();
+        CurrencyService currencyService = retrofit.create(CurrencyService.class);
+        Call<Currency> call = currencyService.getCurrency();
 
         System.out.println("ENQUING");
-        call.enqueue(new Callback<CEP>() {
+        call.enqueue(new Callback<Currency>() {
             @Override
-            public void onResponse(Call<CEP> call, Response<CEP> response) {
-                CEP responseCEP = response.body();
-
-                System.out.println("ok");
-                Toast.makeText(RetrofitActivity.this, responseCEP.getLocalidade(), Toast.LENGTH_SHORT).show();
-                System.out.println(response.body().getLocalidade());
-                System.out.println(response.body().getLogradouro());
+            public void onResponse(Call<Currency> call, Response<Currency> response) {
+                //TODO: Arrumar essa parte
+                Currency responseCurrency = response.body();
+                Log.d("MyDebug","Body: " + response.toString());
+                Log.d("MyDebug", "Currency: " + responseCurrency);
+                Log.d("MyDebug", "ok");
+                //Toast.makeText(RetrofitActivity.this, responseCEP.getLocalidade(), Toast.LENGTH_SHORT).show();
+                //System.out.println(response.body().getLocalidade());
+                //System.out.println(response.body().getLogradouro());
             }
 
             @Override
-            public void onFailure(Call<CEP> call, Throwable t) {
+            public void onFailure(Call<Currency> call, Throwable t) {
                 Toast.makeText(RetrofitActivity.this, "FAIL", Toast.LENGTH_SHORT).show();
                 System.out.println("FAUL");
             }
