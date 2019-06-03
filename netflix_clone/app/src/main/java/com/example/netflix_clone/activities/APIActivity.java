@@ -28,8 +28,6 @@ import java.util.List;
 
 public class APIActivity extends AppCompatActivity {
 
-    private StringBuffer api_raw_result;
-
     private List<Feedback> api_result;
 
     private RecyclerView recyclerView;
@@ -42,7 +40,6 @@ public class APIActivity extends AppCompatActivity {
         setContentView(R.layout.activity_api);
 
         api_result = new ArrayList<>();
-        api_raw_result = new StringBuffer();
 
         //Task
         startTask();
@@ -63,87 +60,99 @@ public class APIActivity extends AppCompatActivity {
 
         @Override
         protected String doInBackground(String... strings) {
-            String string = strings[0];
-            HttpURLConnection connection = null;
-            InputStream inputStream = null;
-            InputStreamReader streamReader = null;
-            BufferedReader bufferedReader = null;
 
-            try {
-                //Seta a url
-                URL url = new URL(string);
+            return getResponseFromURL(strings[0]);
 
-                //Faz a conexao
-                connection = (HttpURLConnection) url.openConnection();
-
-                //Poe a resposta em bytes no input stream
-                inputStream = connection.getInputStream();
-
-                //Faz a leitura dos bytes para caracteres
-                streamReader = new InputStreamReader(inputStream);
-
-                //Transforma em string
-                bufferedReader = new BufferedReader(streamReader);
-                String line = "";
-                while ((line = bufferedReader.readLine()) != null) {
-                    api_raw_result.append(line);
-                }
-
-
-            } catch (MalformedURLException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            return api_raw_result.toString();
         }
 
         @Override
         protected void onPostExecute(String result) {
             super.onPostExecute(result);
-            //Toast.makeText(APIActivity.this, result, Toast.LENGTH_SHORT).show();
 
-            String currency;
-            String buy_price;
-            String sell_price;
+            formatCurrencyJSON(result);
 
+            configAdapter();
 
-            //TODO: Iterar em cada moeda para colocar os valores em uma lista para colocar no adapter
-            try {
+        }
+    }
 
-                JSONObject issueObj = new JSONObject(result);
-                Iterator iterator = issueObj.keys();
-                while (iterator.hasNext()) {
-                    String key = (String) iterator.next();
-                    JSONObject issue = issueObj.getJSONObject(key);
+    private void configAdapter() {
+        //Adapter
+        adapter = new AdapterFeedbacks(api_result);
 
-                    //  get id from  issue
-                    currency = key;
-                    buy_price = issue.optString("buy");
-                    sell_price = issue.optString("sell");
+        //Layout Manager
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
+        recyclerView = findViewById(R.id.api_view);
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setHasFixedSize(true);
+        //recyclerView.addItemDecoration(new DividerItemDecoration(getApplicationContext(), LinearLayout.VERTICAL));
+        recyclerView.setAdapter(adapter);
+    }
 
-                    System.out.println("Currency: " + currency);
-                    System.out.println("Buy: " + buy_price);
-                    System.out.println("Sell:" + sell_price);
+    private void formatCurrencyJSON(String result) {
+        String currency;
+        String buy_price;
+        String sell_price;
 
-                    api_result.add(new Feedback(buy_price.toString(), key, false));
-                    System.out.println(api_result.toString());
-                }
-            } catch (JSONException e) {
-                e.printStackTrace();
+        try {
+
+            JSONObject issueObj = new JSONObject(result);
+            Iterator iterator = issueObj.keys();
+            while (iterator.hasNext()) {
+                String key = (String) iterator.next();
+                JSONObject issue = issueObj.getJSONObject(key);
+
+                //  get id from  issue
+                currency = key;
+                buy_price = issue.optString("buy");
+                sell_price = issue.optString("sell");
+
+                System.out.println("Currency: " + currency);
+                System.out.println("Buy: " + buy_price);
+                System.out.println("Sell:" + sell_price);
+
+                api_result.add(new Feedback(buy_price.toString(), key, false));
+                System.out.println(api_result.toString());
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public String getResponseFromURL(String url_string) {
+        String string = url_string;
+        HttpURLConnection connection = null;
+        InputStream inputStream = null;
+        InputStreamReader streamReader = null;
+        BufferedReader bufferedReader = null;
+        StringBuffer api_raw_result = new StringBuffer();
+
+        try {
+            //Seta a url
+            URL url = new URL(string);
+
+            //Faz a conexao
+            connection = (HttpURLConnection) url.openConnection();
+
+            //Poe a resposta em bytes no input stream
+            inputStream = connection.getInputStream();
+
+            //Faz a leitura dos bytes para caracteres
+            streamReader = new InputStreamReader(inputStream);
+
+            //Transforma em string
+            bufferedReader = new BufferedReader(streamReader);
+            String line = "";
+            while ((line = bufferedReader.readLine()) != null) {
+                api_raw_result.append(line);
             }
 
-            //Adapter
-            adapter = new AdapterFeedbacks(api_result);
 
-            //Layout Manager
-            RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
-            recyclerView = findViewById(R.id.api_view);
-            recyclerView.setLayoutManager(layoutManager);
-            recyclerView.setHasFixedSize(true);
-            //getParentgetApplicationContext()
-            //recyclerView.addItemDecoration(new DividerItemDecoration(getParent().getApplicationContext(), LinearLayout.VERTICAL));
-            recyclerView.setAdapter(adapter);
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+        return api_raw_result.toString();
     }
 }
