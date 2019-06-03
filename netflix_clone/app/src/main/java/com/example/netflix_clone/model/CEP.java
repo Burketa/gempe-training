@@ -2,7 +2,13 @@ package com.example.netflix_clone.model;
 
 public class CEP {
 
+    public CEP(String logradouro, String localidade) {
+        this.logradouro = logradouro;
+        this.localidade = localidade;
+    }
+
     private String logradouro;
+    private String localidade;
 
     public String getLogradouro() {
         return logradouro;
@@ -20,5 +26,4 @@ public class CEP {
         this.localidade = localidade;
     }
 
-    private String localidade;
 }
