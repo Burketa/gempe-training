@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Intent intent = new Intent(getBaseContext(), APIActivity.class);
+        Intent intent = new Intent(getBaseContext(), RetrofitActivity.class);
         startActivity(intent);
 
         feedbacks = new ArrayList<>();
