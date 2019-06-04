@@ -30,14 +30,16 @@ dependencies {
 
     //Dependencias do layout de abas
 
-    implementation 'com.ogaclejapan.smarttablayout:library:2.0.0@aar'
+    implementation 'com.ogaclejapan.smarttablayout:library:1.6.1@aar'  //curso
+    implementation 'com.ogaclejapan.smarttablayout:utils-v4:1.6.1@aar'  //curso
+    //implementation 'com.ogaclejapan.smarttablayout:library:2.0.0@aar'   //Atual
     //Optional: see how to use the utility.
-    implementation 'com.ogaclejapan.smarttablayout:utils-v4:2.0.0@aar'
-    implementation 'com.ogaclejapan.smarttablayout:library:1.7.0@aar'
+    //implementation 'com.ogaclejapan.smarttablayout:utils-v4:2.0.0@aar'  //Atual
+    //implementation 'com.ogaclejapan.smarttablayout:library:1.7.0@aar'   //Atual
     //Optional: see how to use the utility.
-    implementation 'com.ogaclejapan.smarttablayout:utils-v4:1.7.0@aar'
+    //implementation 'com.ogaclejapan.smarttablayout:utils-v4:1.7.0@aar'  //Atual
     //Deprecated since 1.7.0
-    implementation 'com.ogaclejapan.smarttablayout:utils-v13:1.7.0@aar'
+    //implementation 'com.ogaclejapan.smarttablayout:utils-v:1.7.0@aar' //Atual
 
 
 }

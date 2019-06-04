@@ -1,5 +1,6 @@
 package com.example.whatsappclone;
 
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -8,6 +9,7 @@ import android.view.MenuInflater;
 
 import com.example.whatsappclone.fragment.ContatosFragment;
 import com.example.whatsappclone.fragment.ConversasFragment;
+import com.ogaclejapan.smarttablayout.SmartTabLayout;
 import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItemAdapter;
 import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItems;
 
@@ -25,8 +27,15 @@ public class MainActivity extends AppCompatActivity {
                 getSupportFragmentManager(),
                 FragmentPagerItems.with(this)
                 .add("Conversas", ConversasFragment.class)
-                //.add("Contatos", ContatosFragment.class)
-                .create());
+                .add("Contatos", ContatosFragment.class)
+                .create()
+        );
+
+        ViewPager viewPager = findViewById(R.id.viewPager);
+        viewPager.setAdapter(adapter);
+
+        SmartTabLayout viewPagerTab = findViewById(R.id.viewPagerTab);
+        viewPagerTab.setViewPager(viewPager);
     }
 
     @Override
