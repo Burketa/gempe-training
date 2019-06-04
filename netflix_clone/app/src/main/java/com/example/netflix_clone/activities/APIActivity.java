@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.LinearLayout;
 
 import com.example.netflix_clone.R;
 import com.example.netflix_clone.adapters.AdapterFeedbacks;
@@ -26,6 +27,9 @@ import java.util.List;
 
 public class APIActivity extends AppCompatActivity {
 
+
+    private StringBuffer api_raw_result;
+  
     private List<Feedback> api_result;
 
     private RecyclerView recyclerView;
@@ -38,6 +42,8 @@ public class APIActivity extends AppCompatActivity {
         setContentView(R.layout.activity_api);
 
         api_result = new ArrayList<>();
+
+        api_raw_result = new StringBuffer();
 
         //Task
         startTask();
@@ -150,6 +156,43 @@ public class APIActivity extends AppCompatActivity {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
+
+            //TODO: Iterar em cada moeda para colocar os valores em uma lista para colocar no adapter
+            try {
+
+                JSONObject issueObj = new JSONObject(result);
+                Iterator iterator = issueObj.keys();
+                while (iterator.hasNext()) {
+                    String key = (String) iterator.next();
+                    JSONObject issue = issueObj.getJSONObject(key);
+
+                    //  get id from  issue
+                    currency = key;
+                    buy_price = issue.optString("buy");
+                    sell_price = issue.optString("sell");
+
+                    System.out.println("Currency: " + currency);
+                    System.out.println("Buy: " + buy_price);
+                    System.out.println("Sell:" + sell_price);
+
+                    api_result.add(new Feedback(buy_price.toString(), key, false));
+                    System.out.println(api_result.toString());
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+            //Adapter
+            adapter = new AdapterFeedbacks(api_result);
+
+            //Layout Manager
+            RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
+            recyclerView = findViewById(R.id.api_view);
+            recyclerView.setLayoutManager(layoutManager);
+            recyclerView.setHasFixedSize(true);
+            //recyclerView.addItemDecoration(new DividerItemDecoration(getParent().getApplicationContext(), LinearLayout.VERTICAL));
+            recyclerView.setAdapter(adapter);
+          
         }
         return api_raw_result.toString();
     }
