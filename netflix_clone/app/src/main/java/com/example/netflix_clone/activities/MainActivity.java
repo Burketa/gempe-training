@@ -1,9 +1,9 @@
 package com.example.netflix_clone.activities;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.RadioGroup;
@@ -30,7 +30,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Intent intent = new Intent(getBaseContext(), APIActivity.class);
+        //Intent intent = new Intent(getBaseContext(), RetrofitActivity.class);
+        Intent intent = new Intent(getBaseContext(), WhatsappActivity.class);
         startActivity(intent);
 
         feedbacks = new ArrayList<>();
