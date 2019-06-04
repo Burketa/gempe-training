@@ -3,6 +3,8 @@ package com.example.whatsappclone.activities;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.example.whatsappclone.R;
+
 public class CadastroAcitivity extends AppCompatActivity {
 
     @Override
