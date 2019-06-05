@@ -1,8 +1,10 @@
 package com.example.whatsappclone.activities;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -29,14 +31,15 @@ public class ChatActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         textViewNome = findViewById(R.id.textViewNomeChat);
-        //circleImageViewFoto = findViewById(R.id.imageViewFotoContato);
+        circleImageViewFoto = findViewById(R.id.circleImageFotoChat);
 
         Bundle bundle = getIntent().getExtras();
         if(bundle != null)
         {
             Usuario usuario = (Usuario)bundle.getSerializable("chatContato");
             textViewNome.setText(usuario.getNome());
-            //circleImageViewFoto.setImageDrawable(usuario.getFotoImage());
+            circleImageViewFoto.setImageResource(usuario.getFotoImage());
+
         }
     }
 

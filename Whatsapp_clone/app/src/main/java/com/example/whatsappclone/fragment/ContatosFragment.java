@@ -2,8 +2,12 @@ package com.example.whatsappclone.fragment;
 
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.media.Image;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -11,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 
+import com.bumptech.glide.Glide;
 import com.example.whatsappclone.R;
 import com.example.whatsappclone.activities.ChatActivity;
 import com.example.whatsappclone.adapter.ContatosAdapter;
@@ -44,10 +49,10 @@ public class ContatosFragment extends Fragment {
         recyclerViewListaContatos = view.findViewById(R.id.recyclerViewListaContatos);
 
         //Popular lista de contatos estatica
-        listaContatos.add(new Usuario("1", "Rafael", "rafael@gempe.com"));
-        listaContatos.add(new Usuario("2", "Fernanda", "fernanda@gempe.com"));
-        listaContatos.add(new Usuario("3", "Geovanne", "geovanne@gempe.com"));
 
+        listaContatos.add(new Usuario("1", "Rafael", "rafael@gempe.com", R.drawable.male_boss));
+        listaContatos.add(new Usuario("2", "Fernanda", "fernanda@gempe.com", R.drawable.female_boss));
+        listaContatos.add(new Usuario("3", "Geovanne", "geovanne@gempe.com", R.drawable.crocante));
 
         //configurar adapter
         adapter = new ContatosAdapter(listaContatos, getActivity());

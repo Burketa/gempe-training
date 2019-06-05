@@ -1,5 +1,6 @@
 package com.example.whatsappclone.model;
 
+import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.media.Image;
 
@@ -12,7 +13,7 @@ public class Usuario implements Serializable {
     private String email;
     private String senha;
     private String foto;
-    private Drawable fotoImage;
+    private int fotoImage;
 
     public Usuario() {
     }
@@ -21,6 +22,13 @@ public class Usuario implements Serializable {
         this.id = id;
         this.nome = nome;
         this.email = email;
+    }
+
+    public Usuario(String id, String nome, String email, int fotoImage) {
+        this.id = id;
+        this.nome = nome;
+        this.email = email;
+        this.fotoImage = fotoImage;
     }
 
     public String getFoto() {
@@ -63,11 +71,11 @@ public class Usuario implements Serializable {
         this.senha = senha;
     }
 
-    public Drawable getFotoImage() {
+    public int getFotoImage() {
         return fotoImage;
     }
 
-    public void setFotoImage(Drawable fotoImage) {
+    public void setFotoImage(int fotoImage) {
         this.fotoImage = fotoImage;
     }
 }

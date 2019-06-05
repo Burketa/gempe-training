@@ -37,7 +37,7 @@ public class ContatosAdapter extends RecyclerView.Adapter<ContatosAdapter.MyView
 
         holder.nome.setText(usuario.getNome());
         holder.email.setText(usuario.getEmail());
-        holder.foto.setImageResource(R.drawable.padrao);
+        holder.foto.setImageResource(usuario.getFotoImage());
     }
 
     @Override
