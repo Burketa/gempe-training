@@ -1,12 +1,15 @@
-package com.example.whatsappclone;
+package com.example.whatsappclone.activities;
 
+import android.content.Intent;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 
+import com.example.whatsappclone.R;
 import com.example.whatsappclone.fragment.ContatosFragment;
 import com.example.whatsappclone.fragment.ConversasFragment;
 import com.ogaclejapan.smarttablayout.SmartTabLayout;
@@ -22,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.toolbarPrincipal);
         setSupportActionBar(toolbar);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
 
         FragmentPagerItemAdapter adapter = new FragmentPagerItemAdapter(
                 getSupportFragmentManager(),
@@ -45,5 +50,22 @@ public class MainActivity extends AppCompatActivity {
         inflater.inflate(R.menu.menu_main, menu);
 
         return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch ( item.getItemId() ){
+            case R.id.menuConfiguracoes :
+                abrirConfiguracoes();
+                break;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    public void abrirConfiguracoes(){
+        Intent intent = new Intent(MainActivity.this, ConfigActivity.class);
+        startActivity( intent );
     }
 }

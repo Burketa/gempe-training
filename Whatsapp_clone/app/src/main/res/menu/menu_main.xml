@@ -8,6 +8,7 @@
         app:showAsAction="always"></item>
 
     <item
+        android:id="@+id/menuConfiguracoes"
         android:title="Configurações"
         app:showAsAction="never"></item>
 

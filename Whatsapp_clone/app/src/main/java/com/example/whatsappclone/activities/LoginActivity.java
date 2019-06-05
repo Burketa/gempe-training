@@ -5,7 +5,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-import com.example.whatsappclone.MainActivity;
 import com.example.whatsappclone.R;
 
 public class LoginActivity extends AppCompatActivity {
