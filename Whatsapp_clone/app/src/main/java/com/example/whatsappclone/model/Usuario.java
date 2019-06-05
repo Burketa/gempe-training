@@ -1,9 +1,5 @@
 package com.example.whatsappclone.model;
 
-import android.graphics.Bitmap;
-import android.graphics.drawable.Drawable;
-import android.media.Image;
-
 import java.io.Serializable;
 
 public class Usuario implements Serializable {
