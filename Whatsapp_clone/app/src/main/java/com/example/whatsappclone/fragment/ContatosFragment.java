@@ -50,13 +50,13 @@ public class ContatosFragment extends Fragment {
 
 
         //configurar adapter
-        adapter = new ContatosAdapter(listaContatos, getActivity() );
+        adapter = new ContatosAdapter(listaContatos, getActivity());
 
         //configurar recyclerview
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager( getActivity() );
-        recyclerViewListaContatos.setLayoutManager( layoutManager );
-        recyclerViewListaContatos.setHasFixedSize( true );
-        recyclerViewListaContatos.setAdapter( adapter );
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
+        recyclerViewListaContatos.setLayoutManager(layoutManager);
+        recyclerViewListaContatos.setHasFixedSize(true);
+        recyclerViewListaContatos.setAdapter(adapter);
 
         recyclerViewListaContatos.addOnItemTouchListener(
                 new RecyclerItemClickListener(
@@ -65,17 +65,10 @@ public class ContatosFragment extends Fragment {
                         new RecyclerItemClickListener.OnItemClickListener() {
                             @Override
                             public void onItemClick(View view, int position) {
-                                //TODO: implementar o que cada item faz quando clicacdo
-                                System.out.println("asd");
-
-                                Intent intent = new Intent(getActivity(), ChatActivity.class);
-                                startActivity(intent);
-
-                                //Toast.makeText(, "clique: ", Toast.LENGTH_SHORT).show();
-                                /*Usuario usuarioSelecionado = listaContatos.get( position );
+                                Usuario usuarioSelecionado = listaContatos.get(position);
                                 Intent i = new Intent(getActivity(), ChatActivity.class);
-                                i.putExtra("chatContato", usuarioSelecionado );
-                                startActivity( i );*/
+                                i.putExtra("chatContato", usuarioSelecionado);
+                                startActivity(i);
 
                             }
 
