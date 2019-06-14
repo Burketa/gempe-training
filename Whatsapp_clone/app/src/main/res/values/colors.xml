@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#5A5858</color>
-    <color name="colorPrimaryDark">#353434</color>
+    <color name="colorPrimaryLight">#FFECEC</color>
+    <color name="colorPrimaryDark">#313131</color>
     <color name="colorAccent">#CE1313</color>
-    <color name="cinza_escuro">#504F4F</color>
+    <color name="hintColor">#BEBEBE</color>
 </resources>
