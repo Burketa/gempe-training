@@ -1,4 +1,4 @@
-package com.example.whatsappclone.fragment;
+package com.teamfive.trailerflix.fragment;
 
 
 import android.os.Bundle;
@@ -7,15 +7,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.whatsappclone.R;
+import com.teamfive.trailerflix.R;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ConversasFragment extends Fragment {
+public class AcaoFragment extends Fragment {
 
 
-    public ConversasFragment() {
+    public AcaoFragment() {
         // Required empty public constructor
     }
 
@@ -24,7 +24,7 @@ public class ConversasFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_comedia, container, false);
+        return inflater.inflate(R.layout.fragment_acao, container, false);
     }
 
 }

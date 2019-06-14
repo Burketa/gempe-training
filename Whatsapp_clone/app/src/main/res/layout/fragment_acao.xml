@@ -4,12 +4,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimaryDark"
-    tools:context=".fragment.AcaoFragment">
+    tools:context="com.teamfive.trailerflix.fragment.AcaoFragment">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recyclerViewListaContatos"
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scrollbars="vertical" />
+        android:gravity="center"
+        android:text="Ação"
+        android:textColor="@android:color/white"
+        android:textSize="36sp" />
 
 </FrameLayout>

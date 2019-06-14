@@ -1,4 +1,4 @@
-package com.example.whatsappclone.activities;
+package com.teamfive.trailerflix.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,11 +9,9 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
-import com.example.whatsappclone.R;
-import com.example.whatsappclone.fragment.AcaoFragment;
-import com.example.whatsappclone.fragment.ComediaFragment;
-import com.example.whatsappclone.fragment.ContatosFragment;
-import com.example.whatsappclone.fragment.ConversasFragment;
+import com.teamfive.trailerflix.R;
+import com.teamfive.trailerflix.fragment.AcaoFragment;
+import com.teamfive.trailerflix.fragment.ComediaFragment;
 import com.ogaclejapan.smarttablayout.SmartTabLayout;
 import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItemAdapter;
 import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItems;

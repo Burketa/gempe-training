@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.whatsappclone">
+    package="com.teamfive.trailerflix">
 
     <application
         android:allowBackup="true"
@@ -10,20 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".activities.ChatActivity"
-            android:label="@string/title_activity_chat"
-            android:parentActivityName=".activities.MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.whatsappclone.activities.MainActivity" />
-        </activity>
-        <activity
-            android:name=".activities.ConfigActivity"
-            android:parentActivityName=".activities.MainActivity" />
-        <activity android:name=".activities.CadastroAcitivity" />
-        <activity android:name=".activities.MainActivity" />
-        <activity android:name=".activities.LoginActivity">
+            android:name="com.teamfive.trailerflix.activities.ConfigActivity"
+            android:parentActivityName="com.teamfive.trailerflix.activities.MainActivity" />
+        <activity android:name="com.teamfive.trailerflix.activities.CadastroAcitivity" />
+        <activity android:name="com.teamfive.trailerflix.activities.MainActivity" />
+        <activity android:name="com.teamfive.trailerflix.activities.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

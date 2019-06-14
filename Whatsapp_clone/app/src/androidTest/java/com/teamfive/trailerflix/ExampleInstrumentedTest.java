@@ -1,4 +1,4 @@
-package com.example.whatsappclone;
+package com.teamfive.trailerflix;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

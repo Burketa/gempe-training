@@ -1,7 +1,6 @@
-package com.example.whatsappclone.fragment;
+package com.teamfive.trailerflix.fragment;
 
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -11,28 +10,24 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 
-import com.example.whatsappclone.R;
-import com.example.whatsappclone.activities.ChatActivity;
-import com.example.whatsappclone.adapter.ContatosAdapter;
-import com.example.whatsappclone.adapter.TrailersAdapter;
-import com.example.whatsappclone.helper.RecyclerItemClickListener;
-import com.example.whatsappclone.model.Trailer;
-import com.example.whatsappclone.model.Usuario;
+import com.teamfive.trailerflix.R;
+import com.teamfive.trailerflix.adapter.TrailersAdapter;
+import com.teamfive.trailerflix.helper.RecyclerItemClickListener;
+import com.teamfive.trailerflix.model.Trailer;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ContatosFragment extends Fragment {
+public class ComediaFragment extends Fragment {
 
 
     private RecyclerView recyclerView;
     private TrailersAdapter adapter;
     private ArrayList<Trailer> trailerList = new ArrayList<>();
 
-    public ContatosFragment() {
+    public ComediaFragment() {
         // Required empty public constructor
     }
 
@@ -41,7 +36,7 @@ public class ContatosFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_acao, container, false);
+        View view = inflater.inflate(R.layout.fragment_comedia, container, false);
 
         //Configurações iniciais
         recyclerView = view.findViewById(R.id.recyclerViewListaContatos);
@@ -71,7 +66,7 @@ public class ContatosFragment extends Fragment {
                                 Trailer trailer = trailerList.get(position);
                                 //Intent i = new Intent(getActivity(), ChatActivity.class);
                                 //i.putExtra("chatContato", usuarioSelecionado);
-                               // startActivity(i);
+                                // startActivity(i);
 
                             }
 

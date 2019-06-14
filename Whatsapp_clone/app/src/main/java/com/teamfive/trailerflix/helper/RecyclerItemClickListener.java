@@ -1,4 +1,4 @@
-package com.example.whatsappclone.helper;
+package com.teamfive.trailerflix.helper;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;

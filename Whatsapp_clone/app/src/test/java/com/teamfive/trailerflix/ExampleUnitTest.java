@@ -1,4 +1,4 @@
-package com.example.whatsappclone;
+package com.teamfive.trailerflix;
 
 import org.junit.Test;
 

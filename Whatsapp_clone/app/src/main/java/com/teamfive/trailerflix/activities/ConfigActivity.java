@@ -1,10 +1,10 @@
-package com.example.whatsappclone.activities;
+package com.teamfive.trailerflix.activities;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
-import com.example.whatsappclone.R;
+import com.teamfive.trailerflix.R;
 
 public class ConfigActivity extends AppCompatActivity {
 
