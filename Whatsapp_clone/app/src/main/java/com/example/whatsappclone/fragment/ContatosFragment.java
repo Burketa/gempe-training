@@ -14,10 +14,13 @@ import android.widget.AdapterView;
 import com.example.whatsappclone.R;
 import com.example.whatsappclone.activities.ChatActivity;
 import com.example.whatsappclone.adapter.ContatosAdapter;
+import com.example.whatsappclone.adapter.TrailersAdapter;
 import com.example.whatsappclone.helper.RecyclerItemClickListener;
+import com.example.whatsappclone.model.Trailer;
 import com.example.whatsappclone.model.Usuario;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -25,9 +28,9 @@ import java.util.ArrayList;
 public class ContatosFragment extends Fragment {
 
 
-    private RecyclerView recyclerViewListaContatos;
-    private ContatosAdapter adapter;
-    private ArrayList<Usuario> listaContatos = new ArrayList<>();
+    private RecyclerView recyclerView;
+    private TrailersAdapter adapter;
+    private ArrayList<Trailer> trailerList = new ArrayList<>();
 
     public ContatosFragment() {
         // Required empty public constructor
@@ -38,37 +41,37 @@ public class ContatosFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_contatos, container, false);
+        View view = inflater.inflate(R.layout.fragment_acao, container, false);
 
         //Configurações iniciais
-        recyclerViewListaContatos = view.findViewById(R.id.recyclerViewListaContatos);
+        recyclerView = view.findViewById(R.id.recyclerViewListaContatos);
 
         //Popular lista de contatos estatica
-
-        listaContatos.add(new Usuario("1", "Rafael", "rafael@gempe.com", R.drawable.male_boss));
-        listaContatos.add(new Usuario("2", "Fernanda", "fernanda@gempe.com", R.drawable.female_boss));
-        listaContatos.add(new Usuario("3", "Geovanne", "geovanne@gempe.com", R.drawable.crocante));
+        trailerList.add(new Trailer(1, null, "Comedia 1", "Engraçado 1", 2000, true));
+        trailerList.add(new Trailer(1, null, "Comedia 2", "Engraçado 2", 2001, false));
+        trailerList.add(new Trailer(1, null, "Comedia 3", "Engraçado 3", 2002, true));
+        trailerList.add(new Trailer(1, null, "Comedia 4", "Engraçado 4", 2003, false));
 
         //configurar adapter
-        adapter = new ContatosAdapter(listaContatos, getActivity());
+        adapter = new TrailersAdapter(trailerList, getActivity());
 
         //configurar recyclerview
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
-        recyclerViewListaContatos.setLayoutManager(layoutManager);
-        recyclerViewListaContatos.setHasFixedSize(true);
-        recyclerViewListaContatos.setAdapter(adapter);
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setAdapter(adapter);
 
-        recyclerViewListaContatos.addOnItemTouchListener(
+        recyclerView.addOnItemTouchListener(
                 new RecyclerItemClickListener(
                         getActivity(),
-                        recyclerViewListaContatos,
+                        recyclerView,
                         new RecyclerItemClickListener.OnItemClickListener() {
                             @Override
                             public void onItemClick(View view, int position) {
-                                Usuario usuarioSelecionado = listaContatos.get(position);
-                                Intent i = new Intent(getActivity(), ChatActivity.class);
-                                i.putExtra("chatContato", usuarioSelecionado);
-                                startActivity(i);
+                                Trailer trailer = trailerList.get(position);
+                                //Intent i = new Intent(getActivity(), ChatActivity.class);
+                                //i.putExtra("chatContato", usuarioSelecionado);
+                               // startActivity(i);
 
                             }
 

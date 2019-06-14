@@ -10,6 +10,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import com.example.whatsappclone.R;
+import com.example.whatsappclone.fragment.AcaoFragment;
+import com.example.whatsappclone.fragment.ComediaFragment;
 import com.example.whatsappclone.fragment.ContatosFragment;
 import com.example.whatsappclone.fragment.ConversasFragment;
 import com.ogaclejapan.smarttablayout.SmartTabLayout;
@@ -31,8 +33,8 @@ public class MainActivity extends AppCompatActivity {
         FragmentPagerItemAdapter adapter = new FragmentPagerItemAdapter(
                 getSupportFragmentManager(),
                 FragmentPagerItems.with(this)
-                .add("Conversas", ConversasFragment.class)
-                .add("Contatos", ContatosFragment.class)
+                .add("Acao", ConversasFragment.class)
+                .add("Comedia", ContatosFragment.class)
                 .create()
         );
 

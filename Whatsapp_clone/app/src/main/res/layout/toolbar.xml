@@ -10,5 +10,5 @@
         android:layout_height="?attr/actionBarSize"
         android:background="@color/colorPrimary"
         android:theme="@style/Toolbar"
-        app:title="Whatsapp"></android.support.v7.widget.Toolbar>
+        app:title="Trailerflix"></android.support.v7.widget.Toolbar>
 </FrameLayout>
